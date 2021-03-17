@@ -1,0 +1,27 @@
+
+<span class="d-block p-2 bg-info text-dark " style="text-align: center;">USERS</span>
+
+  <div *ngIf="dataLoaded==false" class="spinner-border text-warning" role="status">
+    <span class="d-block p-2 bg-warning text-white">Users</span>
+  </div>
+<table  class="table ">
+
+<thead *ngIf="dataLoaded==true" >
+  <tr class="  bg-info text-dark">
+    <th>UserId</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>E-Mail</th>
+    <th>status</th>
+  </tr>
+</thead>
+
+  <tr *ngFor="let user of users">
+    <td>  {{ user.userId }}</td>
+    <td> {{ user.firstName }}</td>
+    <td>  {{ user.lastName }}</td>
+    <td>{{ user.email }}</td>
+    <td> {{ user.status }}</td>
+  </tr>
+  
+</table>

@@ -1,0 +1,22 @@
+
+<span class="d-block p-2 bg-info text-dark " style="text-align: center;">CUSTOMERS</span>
+
+  <div *ngIf="dataLoaded==false" class="spinner-border text-warning" role="status">
+
+</div>
+<table  class="table ">
+
+<thead *ngIf="dataLoaded==true" >
+
+    <tr class="  bg-info text-dark">
+      <th>UserId</th>
+      <th>Company Name</th>
+  </tr>
+
+</thead>
+<tr *ngFor="let customer of customers">
+  <td>  {{ customer.userId}}</td>
+  <td> {{ customer.companyName }}</td>
+
+</tr>
+</table>
