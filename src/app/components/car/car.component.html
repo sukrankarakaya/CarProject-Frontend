@@ -1,8 +1,4 @@
   
-
-
-
-
 <span class="d-block p-2 bg-info text-dark " style="text-align: center;">CARS</span>
 
 
@@ -15,18 +11,21 @@
   <thead *ngIf="dataLoaded==true" >
     <tr class="  bg-info text-dark">
       <th>Car Name</th>
+      <th>Color</th>
       <th>Model Year</th>
       <th>Description</th>
       <th>Daily Price</th>
-
+      <th></th>
     </tr>
  
   </thead>
   <tr *ngFor="let car of cars">
-    <td>{{car.carName  }}</td>
+    <td>{{car.carName  }}</td>   
+    <td>{{ car.colorName }}</td>
     <td>{{ car.modelYear }}</td>
     <td>{{ car.description}}</td>
-    <td>{{ car.dailyPrice }} €</td>
-
+    <td>{{ car.dailyPrice }} </td>
+    <br>
+    <button type="button" class="btn btn-warning" routerLink="detail/{{car.carId}}">Detaylar</button>
   </tr>
 </table>

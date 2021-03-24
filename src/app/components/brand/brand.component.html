@@ -1,8 +1,13 @@
 <div class="mb-3">
-  <span class="d-block p-2 bg-warning text-white">Brands</span>
+  <span [class]="getAllBrandClass()" routerLink ="/cars" >Brands</span>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let brand of brands">
+    <li (click)="setCurrentBrand(brand)" 
+    routerLink ="/cars/brand/{{brand.brandId}}"
+    *ngFor="let brand of brands" 
+    [class]="getCurrentBrandClass(brand)">
       {{ brand.brandName }}
     </li>
   </ul>
 </div>
+
+

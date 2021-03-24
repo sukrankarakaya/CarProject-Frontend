@@ -1,0 +1,20 @@
+<div class="card" style="width: 18rem;" *ngFor="let car of carImage" >
+    <img src="https://localhost:44390/{{car.imagePath}}" class="card-img-top"  >
+    <div class="card-body" *ngFor="let car of carDetail" >
+      <h5 class="card-title" >{{car.carName}} </h5>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush" *ngFor="let car of carDetail">
+      <li class="list-group-item">Color: {{car.colorName}}</li>
+      <li class="list-group-item">Model Year: {{car.modelYear}}</li>
+      <li class="list-group-item">Dercription: {{car.description}}</li>
+      <li class="list-group-item">Daily Price: {{car.dailyPrice}}</li>
+    </ul>
+    <div class="card-body">
+      <button type="button" class="btn btn-warning" >Geri</button>
+      <button type="button" class="btn btn-primary">Kirala</button>    
+    </div>
+
+  </div>
+  <br />
+

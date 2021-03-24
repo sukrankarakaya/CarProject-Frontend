@@ -1,9 +1,11 @@
-
 <div class="mb-3">
-  <span class="d-block p-2 bg-warning text-white">colors</span>
+  <span  [class]="getAllColorClass()" routerLink ="/cars" >Colors</span>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let color of colors">
-      {{ color.colorName }}
-    </li>
-  </ul>
-</div>
+<ul class="list-group">
+ 
+  <li (click)="setCurrentColor(color)"
+  routerLink = "/cars/color/{{color.colorId}}"
+  *ngFor="let color of colors" 
+  [class]="getCurrentColorClass(color)">
+  {{ color.colorName}}</li>
+</ul>
