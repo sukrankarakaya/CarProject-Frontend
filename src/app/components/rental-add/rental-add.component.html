@@ -1,0 +1,54 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5  class="title">Kirala</h5>
+            </div>
+            <div *ngIf="rentalAddForm" class="card-body">
+                <form [formGroup]="rentalAddForm">
+                    <div class="col-md-3">
+                        <label for="carId">Car Id</label>
+                        <div class="form-group">
+                            <input type="number" id="carId" formControlName="carId" class="form-control"
+                                placeholder="Car Id"/>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="userId">Customer </label>
+                        <div class="col-8">
+                            <select class="form-select" [(ngModel)]="customer" formControlName="customerId">
+                                <option [ngValue]="custo.customerId" *ngFor="let custo of customers">
+                                    {{custo.firstName}} {{custo.lastName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="rentDate">Rent Date</label>
+                        <div class="form-group">
+                            <input type="date" id="rentDate" formControlName="rentDate" class="form-control"
+                                placeholder="Rent Date" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="returnDate">Return Date</label>
+                        <div class="form-group">
+                            <input type="date" id="returnDate" formControlName="returnDate" class="form-control"
+                                placeholder="Return Date" />
+
+                        </div>
+                    </div>
+                    
+
+                </form>
+
+            </div>
+           
+            <div class="card-footer">
+                <button (click)="add()" class="btn btn-fill btn-pirimary">İleri</button>
+            </div>
+            
+        </div>
+    </div>
+</div>

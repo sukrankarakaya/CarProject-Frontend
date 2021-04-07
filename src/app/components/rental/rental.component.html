@@ -1,28 +1,23 @@
-
-  
-  <span class="d-block p-2 bg-info text-dark " style="text-align: center;">RENTALS</span>
-
-  <div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
-
+<div class="card text-center">
+  <div class="card-header">Tüm Kiralamalar</div>
+  <div class="card-body">
+    <table class="table  table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Araç</th>
+          <th scope="col">Müşteri</th>
+          <th scope="col">Kiralanma Tarihi</th>
+          <th scope="col">Teslim Tarihi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rental of rentals">
+          <td>{{ rental.carName }}</td>
+          <td>{{ rental.firstName }} {{ rental.lastName }}</td>
+          <td>{{ rental.rentDate }}</td>
+          <td>{{ rental.returnDate }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-<table  class="table ">
-
-  <thead *ngIf="dataLoaded==true" >
-
-    <tr class="  bg-info text-dark">
-      <th>Car Name</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Rent Date</th>
-      <th>Return Date</th>
-    </tr>
- 
-  </thead>
-  <tr *ngFor="let rental of rentals">
-    <td>{{rental.carName }}</td>
-    <td>{{ rental.firstName}}</td>
-    <td>{{ rental.lastName}}</td>
-    <td>{{ rental.rentDate }}</td>
-    <td>{{rental.returnDate }}-</td>
-  </tr>
-</table>
+</div>

@@ -1,0 +1,59 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Araba ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <div class="col-md-3">
+                        <label for="colorId">Color</label>
+                        <div class=form-group>
+                            <select class="form-select" aria-label="Default select example" id="colorId"
+                                formControlName="colorId">
+                                <option *ngFor="let color of colors" [ngValue]="color.colorId ">{{color.colorName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="colorId">Brand</label>
+                        <div class=form-group>
+                            <select class="form-select" aria-label="Default select example" id="brandId"
+                                formControlName="brandId">
+                                <option *ngFor="let brand of brands" [ngValue]="brand.brandId ">{{brand.brandName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="modelYear">Model Year</label>
+                        <div class="form-group">
+                            <input type="number" id="modelYear" formControlName="modelYear" class="form-control"
+                                placeholder="Model Year" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="description">Aciklama</label>
+                        <div class="form-group">
+                            <input type="text" id="description" formControlName="description" class="form-control"
+                                placeholder="description" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="dailyPrice">kira Ücreti</label>
+                        <div class="form-group">
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control"
+                                placeholder="dailyPrice" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-info" (click)="add()"  >İleri</button>
+            </div>
+        </div>
+    </div>
+</div>

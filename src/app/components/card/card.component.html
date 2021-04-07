@@ -1,0 +1,107 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="title">
+                <h4>Ödeme İşlemleri</h4>
+            </div>
+            <div>
+
+                <form [formGroup]="cardForm">
+                    <div class="col-md-3">
+                        <label for="nameSurname">nameSurname </label>
+                        <div class="col-8">
+                            <select class="form-select" [(ngModel)]="card" formControlName="nameSurname">
+                                <option [ngValue]="card.nameSurname" *ngFor="let card of cards">
+                                    {{card.nameSurname}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="cardNo">Card No </label>
+                        <div class="col-8">
+                            <select class="form-select" [(ngModel)]="card" formControlName="cardNo">
+                                <option [ngValue]="card.cardNo" *ngFor="let card of cards">
+                                    {{card.cardNo}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="expirationDate">Expiration Date </label>
+                        <div class="col-8">
+                            <select class="form-select" [(ngModel)]="card" formControlName="expirationDate">
+                                <option [ngValue]="card.expirationDate" *ngFor="let card of cards">
+                                    {{card.expirationDate}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="cvc">CVC</label>
+                        <div class="col-8">
+                            <select class="form-select" [(ngModel)]="card" formControlName="cvc">
+                                <option [ngValue]="card.cvc" *ngFor="let card of cards">
+                                    {{card.cvc}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button (click)="createCard()" class="btn btn-fill btn-warning">İleri</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Ödeme İşlemleri</h5>
+            </div>
+            <div *ngIf="cardForm" class="card-body">
+                <form [formGroup]="cardForm">
+                    <div class="col-md-3">
+                        <label for="nameSurname">Name Surname</label>
+                        <div class="form-group">
+                            <input type="text" id="nameSurname" formControlName="nameSurname" class="form-control"
+                                placeholder="Name Surname" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="cardNo">cardNo </label>
+                        <div class="col-8">
+                            <select class="form-select" [(ngModel)]="card" formControlName="cardNo">
+                                <option [ngValue]="card.cardNo" *ngFor="let card of cards">
+                                    {{card.cardNo}} 
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="expirationDate">Expiration Date </label>
+                        <div class="col-8">
+                            <select class="form-select" [(ngModel)]="card" formControlName="expirationDate">
+                                <option [ngValue]="card.expirationDate" *ngFor="let card of cards">
+                                    {{card.expirationDate}} 
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                   
+
+                </form>
+
+            </div>
+           
+            <div class="card-footer">
+                <button  class="btn btn-fill btn-pirimary">İleri</button>
+            </div>
+        </div>
+    </div>
+</div> -->

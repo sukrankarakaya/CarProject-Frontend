@@ -1,5 +1,9 @@
-  
-<span class="d-block p-2 bg-info text-dark " style="text-align: center;">CARS</span>
+
+<app-filter></app-filter>
+ 
+<div class="card mb-3 ">
+
+  <span class="d-block p-2 bg-info text-dark " style="text-align: center;">CARS</span>
 
 
 <div *ngIf="dataLoaded==false" class="spinner-border text-secondary" role="status">
@@ -26,6 +30,12 @@
     <td>{{ car.description}}</td>
     <td>{{ car.dailyPrice }} </td>
     <br>
+
     <button type="button" class="btn btn-warning" routerLink="detail/{{car.carId}}">Detaylar</button>
   </tr>
 </table>
+
+</div>
+
+
+
