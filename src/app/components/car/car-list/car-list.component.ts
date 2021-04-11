@@ -83,7 +83,6 @@ export class CarListComponent implements OnInit {
    }
    setSelectedCarToDelete(car:Car){
     this.selectedCar=car;
-    console.log(this.setSelectedCarToDelete)
     this.deleteCreateForm();
    }
    deleteCreateForm(){
@@ -97,7 +96,6 @@ export class CarListComponent implements OnInit {
       description:[this.selectedCar.description,Validators.required]
       
     })
-    console.log(this.carDeleteForm)
    }
    
    updateCar(){
@@ -137,14 +135,14 @@ export class CarListComponent implements OnInit {
           if(responseError.error.Errors.length>0){
             for (let i = 0; i < responseError.error.Errors.length; i++) {
               this.toastrService.error(responseError.error.Errors[i].ErrorMessage,
-                "Authendication Problem")
+                "Doğrulama hatası")
             }
           }
         })
         
     }
     else{
-      this.toastrService.warning("Formu eksıksız doldurun","Update Failed!")
+      this.toastrService.warning("Araba Silindi","Başarılı")
     }
    }
     

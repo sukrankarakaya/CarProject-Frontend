@@ -13,6 +13,10 @@ import { ColorListComponent } from './components/color/color-list/color-list.com
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 import { CarListComponent } from './components/car/car-list/car-list.component';
 import { CarDetailService } from './services/car-detail.service';
+import { LoginComponent } from './components/login/login.component';
+import { LoginGuard } from './guards/login.guard';
+import { registerLocaleData } from '@angular/common';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
 {path:"",pathMatch:"full", component:CarComponent},
@@ -30,25 +34,23 @@ const routes: Routes = [
 {path:"cars/brand/:brandId/cars/rent", component:CarComponent},
 {path:"cars/brand/:brandId/detail/:carId/cars/rent", component:RentalComponent},
 {path:"cars/detail/:carId/cars/rent", component:RentalComponent},
-{path:"cars/rentaladd/:carId",component:RentalAddComponent},
+{path:"cars/rentaladd/:carId",component:RentalAddComponent, canActivate:[LoginGuard]},
 {path:"cars/card", component:CardComponent},
 {path:"carDto", component:CarDetailService},
 
 
-{path:"cars/add", component:CarAddComponent},
+{path:"cars/add", component:CarAddComponent, canActivate:[LoginGuard]},
+{path:"colors/add", component:ColorAddComponent, canActivate:[LoginGuard]},
+{path:"brands/add", component:BrandAddComponent, canActivate:[LoginGuard]},
 
-{path:"colors/add", component:ColorAddComponent},
+{path:"colorList", component:ColorListComponent, canActivate:[LoginGuard]},
+{path:"brandList", component:BrandListComponent, canActivate:[LoginGuard]},
+{path:"carList", component:CarListComponent, canActivate:[LoginGuard]},
 
-{path:"brands/add", component:BrandAddComponent},
+{path:"login", component:LoginComponent},
 
-{path:"colors", component:ColorComponent},
-
-{path:"colorList", component:ColorListComponent},
-
-{path:"brandList", component:BrandListComponent},
-
-{path:"carList", component:CarListComponent},
-
+{path:"register", component:RegisterComponent},
+{path:"login/cars", component:LoginComponent},
 
 
 

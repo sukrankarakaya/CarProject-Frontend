@@ -221,18 +221,12 @@
                             <input type="text" class="form-control" *ngIf="selectedCar" id="description"
                                 name="description" formControlName="description" value="{{selectedCar.description}}" readonly>
                         </div>
-
-
-                        <!-- <div class="col-8">
-                            <input type="number" class="form-control" *ngIf="selectedCar" id="carId" name="carId"
-                                formControlName="carId" value="{{selectedCar.carId}}" readonly>
-                        </div> -->
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-danger" (click)="deleteCar()" data-bs-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button class="btn btn-danger" (click)="deleteCar()" data-bs-dismiss="modal">Sil</button>
             </div>
         </div>
     </div>
