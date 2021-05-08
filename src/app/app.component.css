@@ -1,0 +1,57 @@
+body{
+  
+    padding: 0%;
+    margin: 0%;
+    background-image: url("image/ous.jpg");;
+    background-size: 100% 70%;
+    background-repeat: no-repeat ;
+    background-color: #c9c6bd;
+   
+
+ 
+}
+div.claer{
+    clear: both;
+}
+
+#mavi{
+    position: obsolute;
+    top: 400px;
+    height: 200px;
+    width: 100%;
+    background-color: rgb(5, 5, 56);
+
+
+}
+#xyazı{
+    position: relative;
+    top: 250px;
+    width: 50%;
+    margin: 50;
+}
+.yazı{
+    position: relative;
+    width: 250px;
+    top: 50px;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    float: left;
+    padding: 50px;
+
+
+
+}
+
+a{
+    color: white;
+    text-decoration:none;
+}
+
+a:hover{
+    color: yellow;
+
+    
+
+}
+

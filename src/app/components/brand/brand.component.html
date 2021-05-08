@@ -1,25 +1,18 @@
-
 <div *ngIf="filterText" class="alert alert-success">
   {{filterText}} aradınız
 </div>
 
 <div class="mb-3">
-  
-<div class="mb-3">
-  <label for="filterText" class="form-label">Brands</label>
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
-   placeholder="Ara...">
-</div>
-  <span [class]="getAllBrandClass()" routerLink ="/cars" >Brands</span>
-  <ul class="list-group">
-    <li (click)="setCurrentBrand(brand)" 
-    routerLink ="/cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands | filterPipe:filterText" 
-    [class]="getCurrentBrandClass(brand)">
+
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Brands</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Ara...">
+  </div>
+  <span [class]="getAllBrandClass()" routerLink="/cars">Brands</span>
+  <ul id="filter" class="list-group">
+    <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}"
+      *ngFor="let brand of brands | filterPipe:filterText" [class]="getCurrentBrandClass(brand)">
       {{ brand.brandName }}
     </li>
   </ul>
 </div>
-
-
-

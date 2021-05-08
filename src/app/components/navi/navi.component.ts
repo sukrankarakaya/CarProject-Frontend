@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,41 +13,44 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NaviComponent implements OnInit {
 
-  Authenticated:boolean;
-  users: User[];
+  isVerified: boolean = false;
+  userName: string
+  claim: string;
 
-  constructor(private authService:AuthService,
-    private userService:UserService,
-    private toastrService:ToastrService,
-    private localStorageService:LocalStroangeService) { }
+  constructor(
+    private authService: AuthService,
+    private localStorageService: LocalStroangeService,
+    private toastrService: ToastrService
+  ) { }
 
   ngOnInit(): void {
-    //this.isAuthenticated();
-    this.getByMail();
-
+    this.IsUserVerified();
+    if (this.isVerified) {
+      this.getUserName();
+      this.getUserClaim();
+    }
   }
 
-
-  
-  isAuthenticated(){
-    return this.authService.isAuthenticted()
+  IsUserVerified() {
+    if (this.authService.isAuthenticted()) {
+      this.isVerified = true;
+    } else {
+      this.isVerified = false;
+    }
   }
 
+  getUserName() {
+    this.userName = this.localStorageService.getUserNameDecodeToken();
+  }
+
+  getUserClaim() {
+    this.claim = this.localStorageService.getClaimsDecodeToken();
+  }
 
   logOut() {
-    this.localStorageService.clean();
-    this.toastrService.info('Çıkış Yapıldı', 'Bilgi');
-    setTimeout(function () {
-      location.reload();
-    }, 400);
+    this.localStorageService.removeLocalStorage("token");
+    this.toastrService.info("Çikiş yapıldı.", "info");
+    this.ngOnInit();
   }
-
-  getByMail(){
-    this.userService.getByMail(String(this.localStorageService.get('email'))).subscribe(r=>{
-      this.users = r.data
-      console.log(this.users)
-    })
-  }
-
 
 }

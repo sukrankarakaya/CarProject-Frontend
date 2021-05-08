@@ -17,10 +17,13 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { registerLocaleData } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 
 const routes: Routes = [
 {path:"",pathMatch:"full", component:CarComponent},
-{path:"cars", component:CarComponent},
+
+{path:"", component:CarComponent},
+
 {path:"cars/color/:colorId", component:CarComponent},
 {path:"cars/color/:colorId/detail/:carId", component:CarDetailComponent},
 {path:"cars/brand/:brandId", component:CarComponent},
@@ -36,7 +39,7 @@ const routes: Routes = [
 {path:"cars/detail/:carId/cars/rent", component:RentalComponent},
 {path:"cars/rentaladd/:carId",component:RentalAddComponent, canActivate:[LoginGuard]},
 {path:"cars/card", component:CardComponent},
-{path:"carDto", component:CarDetailService},
+
 
 
 {path:"cars/add", component:CarAddComponent, canActivate:[LoginGuard]},
@@ -51,7 +54,8 @@ const routes: Routes = [
 
 {path:"register", component:RegisterComponent},
 {path:"login/cars", component:LoginComponent},
-
+{path:"cars/userUpdate", component:UserUpdateComponent},
+{path:"cars/userUpdate/:userId", component:UserUpdateComponent},
 
 
 

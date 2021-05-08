@@ -21,8 +21,7 @@ export class CarDetailComponent implements OnInit {
 
 
   constructor(
-
-   
+    
     private carImageService:CarImageService,
     private activatedRoute:ActivatedRoute,
     private toastrService:ToastrService,
@@ -50,6 +49,8 @@ export class CarDetailComponent implements OnInit {
       this.carImage=response.data;
     })
   }
+
+  
   addToCart(carDetail:Car){
     this.toastrService.success("Next...",carDetail.carName)
   }

@@ -7,13 +7,13 @@
       <p class="card-text"></p>
     </div>
     <ul class="list-group list-group-flush" *ngFor="let car of carDetail">
-      <li class="list-group-item">Color: {{car.colorName}}</li>
-      <li class="list-group-item">Model Year: {{car.modelYear}}</li>
-      <li class="list-group-item">Dercription: {{car.description}}</li>
-      <li class="list-group-item">Daily Price: {{car.dailyPrice}}</li>
+      <li class="list-group">Color: {{car.colorName}}</li>
+      <li class="list-group">Model Year: {{car.modelYear}}</li>
+      <li class="list-group">Dercription: {{car.description}}</li>
+      <li class="list-group">Daily Price: {{car.dailyPrice}}</li>
     </ul>
     <div class="card-body"  *ngFor="let car of carDetail">
-      <button type="button" class="btn btn-warning"  href="/">Geri</button>
+      <button type="button" class="btn btn-secondary"  >Geri</button>
       
       <button  type="button" class="btn btn-primary" routerLink="/cars/rentaladd/{{car.carId}}">Kirala</button>   
 

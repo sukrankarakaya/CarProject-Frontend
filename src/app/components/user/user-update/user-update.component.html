@@ -1,0 +1,69 @@
+<table id="colorsTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+
+            <th> </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.userId}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>
+                <button type="button" class="btn btn-info btn-xs formButton" data-bs-toggle="modal"
+                    data-bs-target="#updateUserModal" (click)="updateUser()">
+                    Güncelle
+                </button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateUserTitle">Güncelle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userUpdateForm" *ngIf="userUpdateForm">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="userId">Id</label>
+                            <input type="number" class="form-control" *ngIf="selectedUser" id="userId" name="userId"
+                                formControlName="userId" value="{{selectedUser.userId}}" readonly>
+                        </div>
+                        <div class="col-8">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" *ngIf="selectedUser" id="firstName"
+                                formControlName="firstName" value="{{selectedUser.firstName}}">
+                        </div>
+                        <div class="col-8">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" *ngIf="selectedUser" id="email"
+                                formControlName="email" value="{{selectedUser.email}}">
+                        </div>
+                        <div class="col-8">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" *ngIf="selectedUser" id="lastName"
+                                formControlName="lastName" value="{{selectedUser.lastName}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button class="btn btn-primary" (click)="updateUser()" data-bs-dismiss="modal">Kaydet</button>
+            </div>
+        </div>
+    </div>

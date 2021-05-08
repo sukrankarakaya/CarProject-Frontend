@@ -1,4 +1,4 @@
-html,
+
 body {
   height: 100%;
 }
@@ -6,12 +6,14 @@ body {
 body {
   display: flex;
   align-items: center;
+  color: aliceblue;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #db8585;
+  background-image: url("image/1111.jpg");
 }
 
 .form-signin {
+  color: black;
   width: 100%;
   max-width: 330px;
   padding: 15px;
@@ -19,10 +21,12 @@ body {
 }
 
 .form-signin .checkbox {
+  color: rgb(176, 207, 235);
   font-weight: 400;
 }
 
 .form-signin .form-floating:focus-within {
+
   z-index: 2;
 }
 
@@ -51,3 +55,8 @@ body {
       font-size: 3.5rem;
     }
   }
+  h1{
+    color: rgb(250, 250, 250);
+  }
+
+ 

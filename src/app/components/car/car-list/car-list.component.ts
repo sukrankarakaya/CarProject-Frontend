@@ -81,10 +81,12 @@ export class CarListComponent implements OnInit {
       description:[this.selectedCar.description,Validators.required]
     })
    }
+
    setSelectedCarToDelete(car:Car){
     this.selectedCar=car;
     this.deleteCreateForm();
    }
+
    deleteCreateForm(){
     this.carDeleteForm=this.formBuilder.group({
       carId:[this.selectedCar.carId,Validators.required],
@@ -108,9 +110,11 @@ export class CarListComponent implements OnInit {
             window.location.reload();
           }, 2000);
         },
-        (responseError)=>{if(responseError.error.Errors.length>0){
-          for (let i = 0; i <responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage
+        (responseError)=>{
+          if(responseError.error.ValidationErrors.length>0){
+          for (let i = 0; i <responseError.error.ValidationErrors.length; i++) {
+            this.toastrService.error(
+              responseError.error.ValidationErrors[i].ErrorMessage
               ,"Doğrulama hatası")
           }       
         } 
@@ -132,9 +136,9 @@ export class CarListComponent implements OnInit {
           }, 2000);
         },
         (responseError)=>{
-          if(responseError.error.Errors.length>0){
-            for (let i = 0; i < responseError.error.Errors.length; i++) {
-              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,
+          if(responseError.error.ValidationErrors.length>0){
+            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+              this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage,
                 "Doğrulama hatası")
             }
           }

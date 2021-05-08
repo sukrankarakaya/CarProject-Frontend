@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { listResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 import { User } from '../models/user';
 import { LocalStroangeService } from './local-Stroange-service';
 
@@ -25,17 +26,14 @@ export class UserService {
     return this.httpClient.get<listResponseModel<User>>(newPath)
   }
 
-  
-  // userupdate(registerModel:RegisterModel):Observable <SingleResponseModel<TokenModel>>{
-
-  //   return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
-  
-  // }
+  update(user:User):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"users/update",user)
+  }
 
 
   getByMail(email:string):Observable<listResponseModel<User>>{
     let newPath =this.apiUrl +"users/getbyemail?email="+
-    this.localStroangeService.get('email');
+    this.localStroangeService.getLocalStorage('email');
     return this.httpClient.get<listResponseModel<User>>(newPath);
   }
 

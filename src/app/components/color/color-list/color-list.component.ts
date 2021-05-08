@@ -28,6 +28,7 @@ selectedColor:Color;
   ngOnInit(): void {
     this.getColors();
   }
+  
 getColors(){
   this.colorService.getColors().subscribe((response)=>{
      this.colors=response.data;
@@ -38,16 +39,20 @@ setSelectedColorToUpdate(color:Color){
   this.selectedColor=color;
   this.updateCreateForm();
 }
+
 setSelectedColorToDelete(color:Color){
   this.selectedColor=color;
   this.deleteCreateForm();
 }
+
 updateCreateForm(){
   this.colorUpdateForm=this.formBuilder.group({
     colorId:[this.selectedColor.colorId,Validators.required],
     colorName:[this.selectedColor.colorName,Validators.required]
   })
 }
+
+
 deleteCreateForm(){
   this.colorDeleteForm=this.formBuilder.group({
     colorId:[this.selectedColor.colorId,Validators.required],
@@ -62,24 +67,24 @@ updateColor(){
     this.colorService.update(colorModel).subscribe(
       (response)=>{
         this.toastrService.success(response.message,"Success");
-       // this.router.navigate(["/colors"])
        setTimeout(() => {
         window.location.reload();
-      }, 2000);
+      }, 1000);
       },
       (responseError)=>{
         if(responseError.error.ValidationErrors.length>0){
           for (let i = 0; i <responseError.error.ValidationErrors.length; i++) {
             this.toastrService.error(
               responseError.error.ValidationErrors[i].ErrorMessage,
-              "Authendication Problem"
+              "Dogrulama Hatası!"
             )     
           }
         }
-      })
+      }
+    )
   }
   else{
-    this.toastrService.warning("Color Name can not be null","Update Failed!!")
+    this.toastrService.warning("Color Name Boş Geçilemez.","Lütfen Formu Doldurun!")
   }
 }
 deleteColor(){
@@ -88,7 +93,6 @@ deleteColor(){
     this.colorService.delete(colorModel).subscribe(
       (response)=>{
         this.toastrService.success(response.message,"Success");
-        //this.router.navigate(["/colors"])
         setTimeout(() => {
           window.location.reload();
         }, 2000);
@@ -98,14 +102,14 @@ deleteColor(){
           for (let i = 0; i <responseError.error.ValidationErrors.length; i++) {
             this.toastrService.error(
               responseError.error.ValidationErrors[i].ErrorMessage,
-              "Authendication Problem"
+              "Dogrulama Hatası!"
             )     
           }
         }
       })
   }
   else{
-    this.toastrService.warning("Color Name can not be null","Update Failed!!")
+    this.toastrService.warning("Color Name Boş Geçilemez.","Lütfen Formu Doldurun!")
   }
 }
 
